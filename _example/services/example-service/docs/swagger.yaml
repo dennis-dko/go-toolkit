@@ -1,0 +1,123 @@
+basePath: /
+definitions:
+  model.Example:
+    properties:
+      active:
+        type: boolean
+      age:
+        maximum: 130
+        minimum: 0
+        type: integer
+      email:
+        type: string
+      name:
+        type: string
+    required:
+    - email
+    - name
+    type: object
+info:
+  contact:
+    email: example@example.de
+    name: Example
+    url: https://www.example.com/
+  description: Example Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+    diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.
+  title: EXAMPLE
+  version: "1.0"
+paths:
+  /create:
+    post:
+      consumes:
+      - application/json
+      description: Create an entry of example
+      operationId: example-create
+      parameters:
+      - description: Example Data
+        in: body
+        name: params
+        required: true
+        schema:
+          $ref: '#/definitions/model.Example'
+      produces:
+      - application/json
+      responses:
+        "204":
+          description: No Content
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Create an example
+      tags:
+      - Example Actions
+  /example/check:
+    get:
+      description: Get example check status
+      operationId: example-check-status-get
+      parameters:
+      - in: query
+        name: active
+        type: boolean
+      - in: query
+        maximum: 130
+        minimum: 0
+        name: age
+        type: integer
+      - in: query
+        name: email
+        required: true
+        type: string
+      - in: query
+        name: name
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Get example check status
+      tags:
+      - Example Actions
+  /examples:
+    get:
+      description: Get all entries of examples
+      operationId: examples-get
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/model.Example'
+            type: array
+        "400":
+          description: Bad Request
+          schema:
+            type: string
+        "500":
+          description: Internal Server Error
+          schema:
+            type: string
+      summary: Get all examples
+      tags:
+      - Example Actions
+swagger: "2.0"

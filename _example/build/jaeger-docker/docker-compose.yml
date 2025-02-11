@@ -1,0 +1,17 @@
+services:
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    container_name: "example-jaeger"
+    restart: always
+    environment:
+      COLLECTOR_ZIPKIN_HTTP_PORT: 9411
+    ports:
+      - "5775:5775/udp"   # Agent UDP sender
+      - "6831:6831/udp"   # Agent UDP sender
+      - "6832:6832/udp"   # Agent UDP sender
+      - "5778:5778/tcp"   # Agent HTTP server
+      - "16686:16686"     # Query UI
+      - "14268:14268"     # Collector HTTP server (used by client spans)
+      - "4318:4318"       # Collector Thrift HTTP server (used by client spans)
+      - "14250:14250"     # Collector gRPC server (used by client spans)
+      - "9411:9411"       # Zipkin compatible spans receiver

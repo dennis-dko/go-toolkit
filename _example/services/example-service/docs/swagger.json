@@ -1,0 +1,183 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Example Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam.",
+        "title": "EXAMPLE",
+        "contact": {
+            "name": "Example",
+            "url": "https://www.example.com/",
+            "email": "example@example.de"
+        },
+        "version": "1.0"
+    },
+    "basePath": "/",
+    "paths": {
+        "/create": {
+            "post": {
+                "description": "Create an entry of example",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Example Actions"
+                ],
+                "summary": "Create an example",
+                "operationId": "example-create",
+                "parameters": [
+                    {
+                        "description": "Example Data",
+                        "name": "params",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.Example"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "No Content",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/example/check": {
+            "get": {
+                "description": "Get example check status",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Example Actions"
+                ],
+                "summary": "Get example check status",
+                "operationId": "example-check-status-get",
+                "parameters": [
+                    {
+                        "type": "boolean",
+                        "name": "active",
+                        "in": "query"
+                    },
+                    {
+                        "maximum": 130,
+                        "minimum": 0,
+                        "type": "integer",
+                        "name": "age",
+                        "in": "query"
+                    },
+                    {
+                        "type": "string",
+                        "name": "email",
+                        "in": "query",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "name": "name",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/examples": {
+            "get": {
+                "description": "Get all entries of examples",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "Example Actions"
+                ],
+                "summary": "Get all examples",
+                "operationId": "examples-get",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/model.Example"
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "model.Example": {
+            "type": "object",
+            "required": [
+                "email",
+                "name"
+            ],
+            "properties": {
+                "active": {
+                    "type": "boolean"
+                },
+                "age": {
+                    "type": "integer",
+                    "maximum": 130,
+                    "minimum": 0
+                },
+                "email": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

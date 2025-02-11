@@ -1,0 +1,11 @@
+#### TEST ####
+
+# Structure is as follows (explained in columns separated by ","):
+# Column 1: Every policy row contains "p" (p=policy)
+# Column 2: The user role
+# Column 3: The URL path that should be allowed access to
+# Column 4: The URL method that should be allowed access to
+
+p, user, /test, GET
+p, guest, /test, GET
+p, admin, /test, POST

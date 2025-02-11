@@ -1,0 +1,20 @@
+# .golangci.yml
+linters:
+  #  enable-all: true # enable all default linters
+  enable-all: true
+  disable: # disable unnecessary
+    - deadcode
+    - zerologlint
+    - ginkgolinter
+    - golint
+    - ifshort
+    - interfacer
+    - maligned
+    - nosnakecase
+    - scopelint
+    - structcheck
+    - varcheck
+    - exhaustivestruct
+linters-settings:
+  govet:
+    check-shadowing: true
