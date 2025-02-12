@@ -78,8 +78,7 @@
 | MONGODB_DATABASE              | Database name of the server                             | string        |
 | MONGODB_USERNAME              | Username of the server                                  | string        |
 | MONGODB_PASSWORD              | Password of the server                                  | string        |
-| MONGODB_TURNAROUND_COLLECTION | Collection of the turnaround-objects                    | string        |
-| MONGODB_PACKET_COLLECTION     | Collection of the packets                               | string        |
+| MONGODB_COLLECTIONS | Collections to access                  | []string        |
 | MONGODB_TLS_MODE              | TLS mode of the server                                  | string        |
 | MONGODB_TLS_INSECURE          | TLS insecure of the server                              | string        |
 | MONGODB_REPLICA_SET           | Replica set name -> used only on Cloud                  | string        |
